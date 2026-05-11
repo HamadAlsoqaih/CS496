@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS496 Study Web App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div class="header-main">
+        <div class="brand" aria-label="CS496 Study Web App">
+          <div class="brand-mark">CS</div>
+          <div>
+            <h1>CS496 Study</h1>
+            <p>Complete course web app</p>
+          </div>
+        </div>
+
+        <nav id="topicNav" class="module-nav" aria-label="Course modules"></nav>
+
+        <div class="overall-mini" aria-label="Overall progress">
+          <div class="progress-head">
+            <span>Overall progress</span>
+            <strong id="overallPercent">0%</strong>
+          </div>
+          <div class="progress-bar"><span id="overallBar"></span></div>
+          <small id="overallCount">0 / 0 concepts completed</small>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="search-wrap">
+          <span aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="Search concepts, formulas, diagrams, tables, code, or keywords..." />
+        </div>
+        <button id="collapseAllBtn" class="ghost-btn" type="button">Collapse concepts</button>
+        <button id="resetProgressBtn" class="ghost-btn danger" type="button">Reset progress</button>
+        <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="hero" id="hero"></section>
+      <section class="topic-directory" id="moduleTabs" aria-label="Topics"></section>
+      <section class="content-grid" id="content"></section>
+    </main>
+  </div>
+
+  <div id="imageModal" class="image-modal" aria-hidden="true">
+    <button id="closeModal" class="modal-close" type="button" aria-label="Close image">×</button>
+    <img id="modalImage" alt="Expanded course visual" />
+  </div>
+
+  <script src="data/courseData.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
