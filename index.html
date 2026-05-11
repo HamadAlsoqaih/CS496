@@ -3,60 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CS496 Study Web App</title>
+  <title>CS496 Study Website</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="app-shell">
-    <header class="app-header">
-      <div class="header-main">
-        <div class="brand" aria-label="CS496 Study Web App">
-          <div class="brand-mark">CS</div>
-          <div>
-            <h1>CS496 Study</h1>
-            <p>Complete course web app</p>
-          </div>
-        </div>
-
-        <nav id="topicNav" class="module-nav" aria-label="Course modules"></nav>
-
-        <div class="overall-mini" aria-label="Overall progress">
-          <div class="progress-head">
-            <span>Overall progress</span>
-            <strong id="overallPercent">0%</strong>
-          </div>
-          <div class="progress-bar"><span id="overallBar"></span></div>
-          <small id="overallCount">0 / 0 concepts completed</small>
-        </div>
+  <header class="top-shell">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">CS496 Study Website</p>
+        <h1>Quantum, Agentic AI, and Blockchain</h1>
+        <p class="hero-text">A complete, organized study website built from the uploaded course files. Track concepts, review diagrams, and use the mini quizzes to test yourself.</p>
       </div>
-
-      <div class="toolbar">
-        <div class="search-wrap">
-          <span aria-hidden="true">⌕</span>
-          <input id="searchInput" type="search" placeholder="Search concepts, formulas, diagrams, tables, code, or keywords..." />
-        </div>
-        <button id="collapseAllBtn" class="ghost-btn" type="button">Collapse concepts</button>
-        <button id="resetProgressBtn" class="ghost-btn danger" type="button">Reset progress</button>
-        <button id="themeToggle" class="theme-toggle" type="button">Dark mode</button>
+      <div class="hero-actions">
+        <button id="themeToggle" class="secondary-btn" type="button">Dark mode</button>
+        <button id="resetProgress" class="danger-btn" type="button">Reset progress</button>
       </div>
-    </header>
+    </div>
+    <section class="progress-panel" aria-label="Progress overview">
+      <div class="progress-topline">
+        <span>Overall course progress</span>
+        <strong id="overallProgressText">0%</strong>
+      </div>
+      <div class="progress-track"><div id="overallProgressBar" class="progress-fill"></div></div>
+      <div id="moduleProgressList" class="module-progress-list"></div>
+    </section>
+    <nav id="topNav" class="top-nav" aria-label="Main topics"></nav>
+  </header>
 
-    <main class="main-content">
-      <section class="hero" id="hero"></section>
-      <section class="topic-directory" id="moduleTabs" aria-label="Topics"></section>
-      <section class="content-grid" id="content"></section>
-    </main>
-  </div>
+  <main id="app" class="content-shell"></main>
 
-  <div id="imageModal" class="image-modal" aria-hidden="true">
-    <button id="closeModal" class="modal-close" type="button" aria-label="Close image">×</button>
-    <img id="modalImage" alt="Expanded course visual" />
-  </div>
+  <dialog id="imageDialog" class="image-dialog">
+    <button id="closeDialog" class="dialog-close" type="button">Close</button>
+    <img id="dialogImage" alt="Expanded course diagram" />
+    <p id="dialogCaption"></p>
+  </dialog>
 
-  <script src="data/courseData.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
